@@ -44,3 +44,84 @@ VALUES
 SELECT * FROM students;
 -- Make the date of birth as Asending/Desending order
 SELECT * FROM students ORDER BY dob DESC;
+
+SELECT DISTINCT blood_group from students;
+
+
+-- Select students older than 20
+SELECT * from students
+    WHERE (country = 'USA' OR country = 'Australia') and age = 20;
+
+SELECT * from students
+    WHERE country <> 'USA' ;
+
+SELECT length(first_name) from students;
+
+
+
+/*
+    @Scalar functions
+ UPPER() Converts a string to uppercase.
+ LOWER() Converts a string to lowercase.
+ CONCAT() Concatenates two or more strings.
+ LENGTH() Returns the number of characters in a string.
+ 
+    @Aggregate functions
+ AVG() Calculate the average of a set of values.
+ MAX() Returns the max value in a set.
+ MIN() Returns the minimum value in a set.
+ SUM Calculates the sum of values in a set.
+ COUNT() Counts the number of rows in a set.
+
+*/
+
+SELECT count(*) from students;
+
+SELECT max(length(first_name)) from students;
+
+SELECT * from students
+    WHERE NOT country = 'USA' ;
+
+    -- SELECT NULL = 1;
+
+SELECT * from students 
+    WHERE email IS NOT NULL;
+
+select COALESCE(email, 'Email not provided') as "Email", blood_group, first_name from students;
+
+
+-- SELECT * FROM students WHERE country = 'USA' or country = 'Canada' or country = 'UK' ;
+SELECT * FROM students 
+    WHERE country IN('USA', 'UK', 'Canada') ;
+SELECT * FROM students 
+    WHERE country NOT IN('USA', 'UK', 'Canada') ;
+
+SELECT * from students 
+    WHERE dob BETWEEN '2000-01-01' and '2005-01-01' ORDER BY dob;
+
+SELECT * from students
+    WHERE first_name LIKE '___a';
+
+SELECT * from students
+    WHERE first_name ILIKE 'A%';
+
+-- Using Limit and Offset for exersise of pagination
+SELECT * FROM students 
+    WHERE country IN('USA', 'UK', 'Canada') LIMIT 5;
+
+SELECT * from students LIMIT 5 OFFSET 5 * 0;
+SELECT * from students LIMIT 5 OFFSET 5 * 1;
+SELECT * from students LIMIT 5 OFFSET 5 * 2;
+SELECT * from students LIMIT 5 OFFSET 5 * 3;
+
+
+SELECT * FROM students WHERE country = 'UK' ;
+
+DELETE FROM students
+    WHERE grade = 'C' AND country = 'UK';
+
+SELECT * FROM students;
+
+UPDATE students
+    set email = 'default@mail.com', age = 30, course = 'sfdf'
+   id = 45;
