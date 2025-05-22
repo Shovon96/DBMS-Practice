@@ -60,3 +60,31 @@ INSERT INTO departments (department_name) VALUES
     ('Mia Roberts', 10, 70000.25, '2021-11-20');
 
 SELECT * from employees
+JOIN departments ON employees.department_id = departments.department_id;
+
+-- Join the both table using department ID:
+SELECT * from employees
+JOIN departments USING(department_id);
+
+-- Get the Avg salary every department
+SELECT department_name, round(avg(salary)) as avg_salary  FROM employees
+JOIN departments USING(department_id)
+GROUP BY department_name;
+
+
+-- kon department a koto jon employee ache
+SELECT department_name, count(employee_id) FROM employees
+JOIN departments USING(department_id)
+GROUP BY department_name;
+
+-- Maximum salary on this table with department
+SELECT department_name, round(avg(salary)) as avg_salary FROM employees
+JOIN departments USING(department_id)
+GROUP BY department_name
+ORDER BY avg_salary desc
+LIMIT 1
+;
+
+-- koto sale koto jon join korche
+SELECT extract(YEAR from hire_date) as hire_year, count(*) from employees
+GROUP BY hire_year;
