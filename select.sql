@@ -118,10 +118,8 @@ SELECT * from students LIMIT 5 OFFSET 5 * 3;
 SELECT * FROM students WHERE country = 'UK' ;
 
 DELETE FROM students
-    WHERE grade = 'C' AND country = 'UK';
+    WHERE grade = 'C' AND country = 'UK'; 
 
-SELECT * FROM students;
-
-UPDATE students
-    set email = 'default@mail.com', age = 30, course = 'sfdf'
-   id = 45;
+-- UPDATE students
+--     set email = 'default@mail.com', age = 30, course = 'sfdf'
+--    id = 45;
