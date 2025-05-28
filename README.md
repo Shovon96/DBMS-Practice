@@ -39,3 +39,16 @@ WITH top_users AS (
 )
 SELECT * FROM top_users WHERE name LIKE 'A%';
 ```
+
+## 4. What is the difference between INNER JOIN and LEFT JOIN?
+
+### Answer:
+- INNER JOIN: দুইটা table-এর matching row-গুলা return করে।
+
+- LEFT JOIN: left table-এর সব row এবং right table-এর matching row return করে। না থাকলে NULL return করে।
+
+```sql
+SELECT u.name, o.order_id
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id;
+```
