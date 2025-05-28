@@ -52,3 +52,18 @@ SELECT u.name, o.order_id
 FROM users u
 LEFT JOIN orders o ON u.id = o.user_id;
 ```
+
+### 5. Explain the PostgreSQL query execution pipeline.
+
+## Answer:
+- PostgreSQL query execution passes through 5 major stages:
+
+- Parser → SQL query কে parse করে abstract syntax tree (AST) বানায়
+
+- Rewriter → Rules apply করে rewritten query বানায়
+
+- Planner/Optimizer → Best execution path determine করে
+
+- Executor → Plan অনুযায়ী data fetch এবং result generate করে
+
+- Return to client → Final result পাঠায় client-এ
